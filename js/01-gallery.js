@@ -23,13 +23,10 @@ const marcup = galleryItems
   .join("");
 
  
-
 listRef.insertAdjacentHTML("beforeend", marcup);
 
 
-
 listRef.addEventListener('click', onClick);
-window.addEventListener("keydown", onEscapeClick);
 
 let instance;
 
@@ -44,19 +41,26 @@ function onClick(evt){
 
      instance = basicLightbox.create(`
       <img src="${imgEl}" width="800" height="600">
-  `);
+  `,{
+  onShow: ()=> {
+     document.addEventListener("keydown", onEscapeClick);
+     document.body.style.overflow = "hidden"
+  },
+  onClose: () => {
+    document.removeEventListener("keydown", onEscapeClick);
+    document.body.style.overflow = "visible";
+  }
+  });
 
   instance.show()
-  document.removeEventListener("click", onClick);
 };
-
 
 function onEscapeClick(evt) {
     if (evt.code !== "Escape") {
       return
     }
     instance.close();
-    document.removeEventListener("keydown", onEscapeClick);
+    
 }
 
 

@@ -22,7 +22,7 @@ const marcup = galleryItems
 
 listRef.insertAdjacentHTML("beforeend", marcup);
 
-var lightbox = new SimpleLightbox(".gallery a", {
+const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
 });
