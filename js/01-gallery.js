@@ -47,14 +47,16 @@ function onClick(evt){
   `);
 
   instance.show()
-
+  document.removeEventListener("click", onClick);
 };
 
 
 function onEscapeClick(evt) {
-    if (evt.code === "Escape") {
-      instance.close();
+    if (evt.code !== "Escape") {
+      return
     }
+    instance.close();
+    document.removeEventListener("keydown", onEscapeClick);
 }
 
 
