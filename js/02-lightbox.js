@@ -25,12 +25,6 @@ listRef.insertAdjacentHTML("beforeend", marcup);
 var lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250,
-  enableKeyboard: true,
-//   className: 'sl-prev',
-//   additionalHtml: true,
-//   download: `${galleryItems.description}`,
-  //   nav: true,
-  captionPosition: "bottom",
 });
 
 `<li class="gallery__item">
